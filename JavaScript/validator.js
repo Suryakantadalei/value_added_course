@@ -43,12 +43,24 @@ function validate(e){
     } else {
         email_error.innerHTML = "";
     }
-
+    
     if(password === ""){
         password_error.innerHTML = "Password is required";
         error = true;
     } else if(password.length < 6 || password.length >16){
         password_error.innerHTML = "Password must be 6 - 15 character long";
+        error = true;
+    } else if(!password.match(/[a-z]/)) {
+        password_error.innerHTML = "Password must have one lower case character";
+        error = true;
+    }else if(!password.match(/[A-Z]/)) {
+        password_error.innerHTML = "Password must have one upper case character";
+        error = true;
+    }else if(!password.match(/[0-9]/)) {
+        password_error.innerHTML = "Password must have one Number";
+        error = true;
+    }else if(!password.match(/[!@#$%^]/)) {
+        password_error.innerHTML = "Password must have one special character";
         error = true;
     } else {
         password_error.innerHTML = "";
