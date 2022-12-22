@@ -27,6 +27,25 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'all_blogs' %}">Blogs</a>
+              </li>
+             {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signout' %}">Log Out</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Welcome, {{user.first_name}}</a>
+              </li>
+             {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signin' %}">Sign In</a>
+              </li>
+             {% endif %}
+              
             </ul>
           </div>
         </div>
